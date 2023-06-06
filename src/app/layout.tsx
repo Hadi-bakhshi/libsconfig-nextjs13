@@ -1,4 +1,3 @@
-import Providers from '@/providers/Providers';
 import './globals.css';
 import { Vazirmatn } from 'next/font/google';
 
@@ -12,9 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={vazirmatn.className}>
-        <Providers>{children}</Providers>
-      </body>
+      <body className={vazirmatn.className}>{children}</body>
     </html>
   );
 }
