@@ -1,6 +1,7 @@
 import Providers from '@/providers/Providers';
 import './globals.css';
 import { Vazirmatn } from 'next/font/google';
+import ThemeRegistry from '@/providers/MUIProvider';
 
 const vazirmatn = Vazirmatn({ subsets: ['latin'] });
 
@@ -11,9 +12,11 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="fa" dir="rtl">
       <body className={vazirmatn.className}>
-        <Providers>{children}</Providers>
+        <ThemeRegistry>
+          <Providers>{children}</Providers>
+        </ThemeRegistry>
       </body>
     </html>
   );
