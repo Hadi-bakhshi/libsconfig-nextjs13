@@ -3,7 +3,8 @@ import Link from 'next/link';
 import styles from './page.module.css';
 import { Box, Button, Container, TextField, Typography } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks';
-import {  decrement, increment, reset } from '@/feature/counterSlice/counterSlice';
+import { decrement, increment, reset } from '@/feature/counterSlice/counterSlice';
+import { useEffect, useState, useLayoutEffect } from 'react';
 
 export default function Home() {
   const count = useAppSelector((state) => state.counter.value);

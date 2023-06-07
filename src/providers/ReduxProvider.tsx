@@ -1,14 +1,14 @@
 'use client';
 
+import { useLayoutEffect } from 'react';
 import { Provider } from 'react-redux';
-import { persistedStore, store } from '@/feature/store';
-import { PersistGate } from 'redux-persist/es/integration/react';
+import { store } from '@/feature/store';
+import persistStore from 'redux-persist/lib/persistStore';
+
 export function ReduxProvider({ children }: { children: React.ReactNode }) {
-  return (
-    <Provider store={store}>
-      <PersistGate persistor={persistedStore} loading={children}>
-        {children}
-      </PersistGate>
-    </Provider>
-  );
+  useLayoutEffect(() => {
+    persistStore(store);
+  }, []);
+
+  return <Provider store={store}>{children}</Provider>;
 }

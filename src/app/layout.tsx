@@ -3,7 +3,6 @@ import './globals.css';
 import { Vazirmatn } from 'next/font/google';
 import ThemeRegistry from '@/providers/MUIProvider';
 import { ReduxProvider } from '@/providers/ReduxProvider';
-
 const vazirmatn = Vazirmatn({ subsets: ['latin'] });
 
 export const metadata = {
@@ -12,6 +11,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  
   return (
     <html lang="fa" dir="rtl">
       <body className={vazirmatn.className}>
