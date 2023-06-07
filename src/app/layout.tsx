@@ -2,6 +2,7 @@ import Providers from '@/providers/Providers';
 import './globals.css';
 import { Vazirmatn } from 'next/font/google';
 import ThemeRegistry from '@/providers/MUIProvider';
+import { ReduxProvider } from '@/providers/ReduxProvider';
 
 const vazirmatn = Vazirmatn({ subsets: ['latin'] });
 
@@ -15,7 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fa" dir="rtl">
       <body className={vazirmatn.className}>
         <ThemeRegistry>
-          <Providers>{children}</Providers>
+          <Providers>
+            <ReduxProvider>{children}</ReduxProvider>
+          </Providers>
         </ThemeRegistry>
       </body>
     </html>

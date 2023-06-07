@@ -2,8 +2,13 @@
 import Link from 'next/link';
 import styles from './page.module.css';
 import { Box, Button, Container, TextField, Typography } from '@mui/material';
+import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks';
+import {  decrement, increment, reset } from '@/feature/counterSlice/counterSlice';
 
 export default function Home() {
+  const count = useAppSelector((state) => state.counter.value);
+  const dispatch = useAppDispatch();
+
   return (
     <main className={styles.main}>
       <Container maxWidth="lg">
@@ -30,6 +35,12 @@ export default function Home() {
           <Button variant="contained">سلام</Button>
           <TextField label="تعداد" variant="outlined" />
           <Link href="/hydration">Prefetching Using Hydration</Link>
+          <button onClick={() => dispatch(increment())}>increment</button>
+          <button onClick={() => dispatch(decrement())} style={{ marginInline: 16 }}>
+            decrement
+          </button>
+          <button onClick={() => dispatch(reset())}>reset</button>
+          <h3>count is:{count}</h3>
         </Box>
       </div>
     </main>
